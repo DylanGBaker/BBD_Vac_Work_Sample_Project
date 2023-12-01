@@ -111,6 +111,9 @@ function convertToPostFix(infix_expression_no_spaces) {
         case "*":
         case "/":
         case "^":
+        case "c":
+        case "s":
+        case "t":
           precedence = getOperatorPrecedence(symbol);
           j = operator_stack.length - 1;
 
@@ -126,12 +129,6 @@ function convertToPostFix(infix_expression_no_spaces) {
           operator_stack.push(symbol);
           j = 0;
           break;
-
-        // case "s":
-
-        // case "c":
-
-        // case "t":
 
         default:
           break;
@@ -166,45 +163,81 @@ function evaluateExpression(postfix_expression) {
       j++;
     } else {
       k = operand_stack.length - 1;
-      first_operand = operand_stack[k];
-      second_operand = operand_stack[k - 1];
-      operand_stack.pop();
-      operand_stack.pop();
 
       switch (postfix_expression[i]) {
         case "+":
+          first_operand = operand_stack[k];
+          second_operand = operand_stack[k - 1];
+          operand_stack.pop();
+          operand_stack.pop();
           final_answer = second_operand + first_operand;
           operand_stack.push(final_answer);
           j--;
           break;
 
         case "-":
+          first_operand = operand_stack[k];
+          second_operand = operand_stack[k - 1];
+          operand_stack.pop();
+          operand_stack.pop();
           final_answer = second_operand - first_operand;
           operand_stack.push(final_answer);
           j--;
           break;
 
         case "*":
+          first_operand = operand_stack[k];
+          second_operand = operand_stack[k - 1];
+          operand_stack.pop();
+          operand_stack.pop();
           final_answer = second_operand * first_operand;
           operand_stack.push(final_answer);
           j--;
           break;
 
         case "/":
+          first_operand = operand_stack[k];
+          second_operand = operand_stack[k - 1];
+          operand_stack.pop();
+          operand_stack.pop();
           final_answer = second_operand / first_operand;
           operand_stack.push(final_answer);
           j--;
           break;
 
         case "^":
+          first_operand = operand_stack[k];
+          second_operand = operand_stack[k - 1];
+          operand_stack.pop();
+          operand_stack.pop();
           final_answer = Math.pow(second_operand, first_operand);
           operand_stack.push(final_answer);
           j--;
           break;
+
+        case "c":
+          first_operand = operand_stack[k];
+          operand_stack.pop();
+          final_answer = Math.cos(first_operand);
+          operand_stack.push(final_answer);
+          break;
+
+        case "s":
+          first_operand = operand_stack[k];
+          operand_stack.pop();
+          final_answer = Math.sin(first_operand);
+          operand_stack.push(final_answer);
+          break;
+
+        case "t":
+          first_operand = operand_stack[k];
+          operand_stack.pop();
+          final_answer = Math.tan(first_operand);
+          operand_stack.push(final_answer);
+          break;
       }
     }
   }
-
   return final_answer;
 }
 
