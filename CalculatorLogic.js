@@ -149,12 +149,69 @@ function convertToPostFix(infix_expression_no_spaces) {
     postfix_expression.push(symbol);
   }
 
-  console.log(postfix_expression);
+  return postfix_expression;
+}
+
+function evaluateExpression(postfix_expression) {
+  let operand_stack = [];
+  let j = 0;
+  let k = 0;
+  let first_operand = 0;
+  let second_operand = 0;
+  let final_answer = 0;
+
+  for (let i = 0; i < postfix_expression.length; i++) {
+    if (!isNaN(postfix_expression[i])) {
+      operand_stack[j] = parseFloat(postfix_expression[i]);
+      j++;
+    } else {
+      k = operand_stack.length - 1;
+      first_operand = operand_stack[k];
+      second_operand = operand_stack[k - 1];
+      operand_stack.pop();
+      operand_stack.pop();
+
+      switch (postfix_expression[i]) {
+        case "+":
+          final_answer = second_operand + first_operand;
+          operand_stack.push(final_answer);
+          j--;
+          break;
+
+        case "-":
+          final_answer = second_operand - first_operand;
+          operand_stack.push(final_answer);
+          j--;
+          break;
+
+        case "*":
+          final_answer = second_operand * first_operand;
+          operand_stack.push(final_answer);
+          j--;
+          break;
+
+        case "/":
+          final_answer = second_operand / first_operand;
+          operand_stack.push(final_answer);
+          j--;
+          break;
+
+        case "^":
+          final_answer = Math.pow(second_operand, first_operand);
+          operand_stack.push(final_answer);
+          j--;
+          break;
+      }
+    }
+  }
+
+  return final_answer;
 }
 
 function calculateExpression() {
   let infix_expression_no_spaces = removeSpaces();
-  convertToPostFix(infix_expression_no_spaces);
+  let postfix_expression = convertToPostFix(infix_expression_no_spaces);
+  calc_display.innerHTML = evaluateExpression(postfix_expression);
 }
 
 function detectButtonClicks() {
