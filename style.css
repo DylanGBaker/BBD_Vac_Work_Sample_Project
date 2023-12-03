@@ -10,19 +10,26 @@ body {
 
 .calculator-layout {
   display: grid;
+  background-color: grey;
+  background-image: linear-gradient(-160deg, grey 80%, white 200%);
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
   gap: 0.5rem;
   list-style-type: none;
-  height: 40em;
+  border-style: solid;
+  border-radius: 2em;
+
+  height: 60em;
   width: 40em;
   padding: 0 0.5em;
   margin: 0;
 }
 
 .calculator-display {
-  margin: 0;
-  font-size: 5em;
+  margin: 0.3em;
+  background-color: white;
+  border-style: solid;
+  font-size: 2em;
   text-align: right;
   grid-row-start: 1;
   grid-column: span 4;
@@ -31,11 +38,15 @@ body {
 
 .calculator-btn {
   cursor: pointer;
-  outline: none;
-  background-image: linear-gradient(160deg, #00d4ff 5%, #ffffff 110%);
+  border-style: none;
+  background-image: linear-gradient(
+    160deg,
+    rgba(41, 185, 214, 0.6) 40%,
+    #ffffff 200%
+  );
 
   border-radius: 200em;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #clear {
