@@ -1,19 +1,36 @@
+body {
+  font-family: "Source Sans 3", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .calculator-layout {
-  margin: auto;
-  margin-top: 25%;
-  width: 50%;
-  list-style-type: none;
-  text-align: center;
   display: grid;
-  gap: 1.5rem;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
+  gap: 0.5rem;
+  list-style-type: none;
+  height: 40em;
+  width: 40em;
+  padding: 0 0.5em;
+  margin: 0;
 }
 
 .calculator-display {
+  margin: 0;
   text-align: right;
   grid-row-start: 1;
   grid-column: span 4;
+  overflow-wrap: break-word;
+}
+
+.calculator-btn {
+  cursor: pointer;
+  outline: none;
 }
 
 #clear {

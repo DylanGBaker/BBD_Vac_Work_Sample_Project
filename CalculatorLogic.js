@@ -142,7 +142,6 @@ function convertToPostFix(infix_expression_no_spaces) {
 
   while (operator_stack.length > 0) {
     symbol = operator_stack.pop();
-    console.log(symbol);
     postfix_expression.push(symbol);
   }
 
