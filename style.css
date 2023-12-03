@@ -22,6 +22,7 @@ body {
 
 .calculator-display {
   margin: 0;
+  font-size: 5em;
   text-align: right;
   grid-row-start: 1;
   grid-column: span 4;
@@ -31,6 +32,10 @@ body {
 .calculator-btn {
   cursor: pointer;
   outline: none;
+  background-image: linear-gradient(160deg, #00d4ff 5%, #ffffff 110%);
+
+  border-radius: 200em;
+  font-size: 2em;
 }
 
 #clear {
