@@ -60,3 +60,44 @@ body {
 #clear {
   grid-column: span 2;
 }
+
+@media (max-width: 600px) {
+  .calculator-layout {
+    height: 30em;
+    width: 20em;
+  }
+}
+
+@media (max-height: 720px) {
+  .calculator-layout {
+    height: 20em;
+    width: 10em;
+  }
+
+  .calculator-display {
+    margin: 0.1em;
+    font-size: 1em;
+  }
+
+  .calculator-btn {
+    border-radius: 200em;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 420px) {
+  .calculator-layout {
+    height: 15em;
+    width: 10em;
+  }
+
+  .calculator-display {
+    margin: 0.1em;
+    font-size: 1em;
+  }
+
+  .calculator-btn {
+    border-radius: 200em;
+    font-size: 0.5em;
+  }
+}
