@@ -3,6 +3,13 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+.calculator-container {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,9 +26,9 @@ body {
   border-style: solid;
   border-radius: 2em;
 
-  height: 60em;
-  width: 40em;
-  padding: 0 0.5em;
+  height: 40em;
+  width: 30em;
+  padding: 1em 2em;
   margin: 0;
 }
 
@@ -31,6 +38,7 @@ body {
   border-style: solid;
   font-size: 2em;
   text-align: right;
+
   grid-row-start: 1;
   grid-column: span 4;
   overflow-wrap: break-word;
